@@ -2,6 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>hotel_admin</module>
+        <module>hotel_common</module>
+    </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -65,12 +69,13 @@
         <!--mybatis - plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-            <version>3.3.1.tmp</version>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.0.5</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
             <optional>true</optional>
         </dependency>
         <!--mysql-->
@@ -91,12 +96,33 @@
             <artifactId>aliyun-java-sdk-vod</artifactId>
             <version>2.15.2</version>
         </dependency>
-            <!--swagger-->
+        <!--swagger-->
             <dependency>
                 <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>2.9.2</version>
+                <artifactId>springfox-swagger2</artifactId>
+                <version> 2.9.2</version>
             </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+
+        <!--开发者工具-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version> 2.2.5.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!--日期时间工具-->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.10.1</version>
+        </dependency>
 
     </dependencies>
     </dependencyManagement>
@@ -110,17 +136,17 @@
             </plugin>
         </plugins>
         <!--springboot项目不加下面这个，打包的时候是不会把webapp目录下的页面也打包进去-->
-        <resources>
+       <!-- <resources>
             <resource>
-                <!--项目中要处理的目录-->
+                &lt;!&ndash;项目中要处理的目录&ndash;&gt;
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
-                <!--false 不过滤  -->
+                &lt;!&ndash;false 不过滤  &ndash;&gt;
                 <filtering>false</filtering>
             </resource>
-        </resources>
+        </resources>-->
 
         <finalName>hotel</finalName>
     </build>
